@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Content | Free Access</title>
+    <title>Exclusive Content | 18+ Only</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -39,18 +39,15 @@
         
         .header {
             margin-bottom: 30px;
-            display: flex;
-            justify-content: center;
         }
         
         .onlyfans-logo {
             height: 60px;
-            filter: drop-shadow(0 0 8px rgba(0, 174, 239, 0.7));
+            filter: drop-shadow(0 0 5px rgba(0, 174, 239, 0.7));
         }
         
         .profile-container {
             margin: 25px 0 35px;
-            position: relative;
         }
         
         .profile-image {
@@ -93,12 +90,11 @@
             display: inline-block;
             background: rgba(225, 48, 108, 0.2);
             color: #ff6b9c;
-            padding: 8px 20px;
+            padding: 5px 15px;
             border-radius: 20px;
             font-weight: 600;
             margin-top: 10px;
             border: 1px solid rgba(225, 48, 108, 0.4);
-            font-size: 16px;
         }
         
         .btn {
@@ -150,23 +146,6 @@
             animation: pulse 2s infinite;
         }
         
-        .verification-badge {
-            position: absolute;
-            bottom: 30px;
-            right: calc(50% - 90px);
-            background: #00aeef;
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid rgba(25, 25, 45, 0.8);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-        }
-        
         /* Responsive design */
         @media (max-width: 480px) {
             .container {
@@ -190,31 +169,24 @@
                 padding: 16px 30px;
                 font-size: 18px;
             }
-            
-            .verification-badge {
-                bottom: 25px;
-                right: calc(50% - 75px);
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://i.ibb.co/TBLVyKz/Only-Fans-5.png" alt="OnlyFans Logo" class="onlyfans-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/OnlyFans_logo.svg/1200px-OnlyFans_logo.svg.png" alt="OnlyFans Logo" class="onlyfans-logo">
         </div>
         
         <div class="profile-container">
             <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Profile Image" class="profile-image pulse">
-            <div class="verification-badge">
-                <i class="fas fa-check"></i>
-            </div>
         </div>
         
         <h1 class="title">GET FREE ACCESS</h1>
         
         <p class="description">
-            Wanna see my exclusive images? Subscribe now for free access to all my premium content!
+            Wanna see my exclusive images and content? 
+            Subscribe now for free access to all my premium content!
         </p>
         
         <div class="age-warning">
@@ -223,12 +195,11 @@
         
         <div style="margin: 35px 0;">
             <button class="btn" id="accessBtn">
-                <i class="fas fa-lock-open"></i> UNLOCK ACCESS NOW
+                <i class="fas fa-lock-open"></i> UNLOCK ACCESS
             </button>
         </div>
         
         <div class="footer">
-            <p>By clicking above, you agree to our Terms of Service</p>
             <p>© 2023 Exclusive Content. All rights reserved.</p>
         </div>
     </div>
@@ -242,12 +213,9 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> REDIRECTING...';
             btn.disabled = true;
             
-            // Add a pulsing effect
-            btn.classList.add('pulse');
-            
             // Simulate a delay for the redirect
             setTimeout(function() {
-                // Redirect to OnlyFans
+                // Replace with your actual redirect URL
                 window.location.href = 'https://onlyfans.com/';
             }, 1500);
         });
