@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Content | 18+ Only</title>
+    <title>Exclusive Content | Free Access</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -21,33 +21,46 @@
             align-items: center;
             padding: 20px;
             color: #fff;
+            overflow-x: hidden;
         }
         
         .container {
-            background: rgba(25, 25, 45, 0.8);
+            background: rgba(25, 25, 45, 0.85);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             width: 100%;
             max-width: 450px;
-            padding: 30px;
+            padding: 35px 30px;
             text-align: center;
             position: relative;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
         }
         
         .header {
             margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px 25px;
+            border-radius: 15px;
+            display: inline-block;
         }
         
         .onlyfans-logo {
             height: 60px;
-            filter: drop-shadow(0 0 5px rgba(0, 174, 239, 0.7));
+            filter: drop-shadow(0 0 8px rgba(0, 174, 239, 0.7));
         }
         
         .profile-container {
             margin: 25px 0 35px;
+            position: relative;
         }
         
         .profile-image {
@@ -60,6 +73,14 @@
             margin: 0 auto 25px;
             display: block;
             transition: transform 0.3s ease;
+            background: linear-gradient(45deg, #00aeef, #e1306c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            padding: 15px;
         }
         
         .profile-image:hover {
@@ -90,11 +111,12 @@
             display: inline-block;
             background: rgba(225, 48, 108, 0.2);
             color: #ff6b9c;
-            padding: 5px 15px;
+            padding: 8px 20px;
             border-radius: 20px;
             font-weight: 600;
             margin-top: 10px;
             border: 1px solid rgba(225, 48, 108, 0.4);
+            font-size: 16px;
         }
         
         .btn {
@@ -115,12 +137,31 @@
             width: 100%;
             max-width: 300px;
             margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #e1306c, #00aeef);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
         }
         
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(0, 174, 239, 0.6);
-            background: linear-gradient(45deg, #00aeef, #0056b3);
+        }
+        
+        .btn:hover::before {
+            opacity: 1;
         }
         
         .btn:active {
@@ -146,6 +187,65 @@
             animation: pulse 2s infinite;
         }
         
+        .verification-badge {
+            position: absolute;
+            bottom: 30px;
+            right: calc(50% - 90px);
+            background: #00aeef;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid rgba(25, 25, 45, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 174, 239, 0.1);
+            filter: blur(60px);
+        }
+        
+        .bg-circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            left: -100px;
+        }
+        
+        .bg-circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            right: -50px;
+            background: rgba(225, 48, 108, 0.1);
+        }
+        
         /* Responsive design */
         @media (max-width: 480px) {
             .container {
@@ -169,24 +269,44 @@
                 padding: 16px 30px;
                 font-size: 18px;
             }
+            
+            .verification-badge {
+                bottom: 25px;
+                right: calc(50% - 75px);
+            }
+            
+            .onlyfans-logo {
+                height: 50px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="background-elements">
+        <div class="bg-circle"></div>
+        <div class="bg-circle"></div>
+    </div>
+    
     <div class="container">
         <div class="header">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/OnlyFans_logo.svg/1200px-OnlyFans_logo.svg.png" alt="OnlyFans Logo" class="onlyfans-logo">
+            <div class="logo-container">
+                <img src="https://i.ibb.co/5KfZbHc/Only-Fans-5.png" alt="OnlyFans Logo" class="onlyfans-logo">
+            </div>
         </div>
         
         <div class="profile-container">
-            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" alt="Profile Image" class="profile-image pulse">
+            <div class="profile-image pulse">
+                <div>Profile Image<br><span style="font-size: 14px;">(Would appear here)</span></div>
+            </div>
+            <div class="verification-badge">
+                <i class="fas fa-check"></i>
+            </div>
         </div>
         
         <h1 class="title">GET FREE ACCESS</h1>
         
         <p class="description">
-            Wanna see my exclusive images and content? 
-            Subscribe now for free access to all my premium content!
+            Wanna see my exclusive images? Subscribe now for free access to all my premium content!
         </p>
         
         <div class="age-warning">
@@ -194,12 +314,13 @@
         </div>
         
         <div style="margin: 35px 0;">
-            <button class="btn" id="accessBtn">
-                <i class="fas fa-lock-open"></i> UNLOCK ACCESS
+            <button class="btn floating" id="accessBtn">
+                <i class="fas fa-lock-open"></i> UNLOCK ACCESS NOW
             </button>
         </div>
         
         <div class="footer">
+            <p>By clicking above, you agree to our Terms of Service</p>
             <p>© 2023 Exclusive Content. All rights reserved.</p>
         </div>
     </div>
@@ -213,9 +334,13 @@
             btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> REDIRECTING...';
             btn.disabled = true;
             
+            // Add a pulsing effect
+            btn.classList.remove('floating');
+            btn.classList.add('pulse');
+            
             // Simulate a delay for the redirect
             setTimeout(function() {
-                // Replace with your actual redirect URL
+                // Redirect to OnlyFans
                 window.location.href = 'https://onlyfans.com/';
             }, 1500);
         });
@@ -228,6 +353,14 @@
         
         profileImage.addEventListener('mouseleave', function() {
             this.classList.add('pulse');
+        });
+        
+        // Background animation
+        document.addEventListener('mousemove', (e) => {
+            const container = document.querySelector('.container');
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
         });
     </script>
 </body>
